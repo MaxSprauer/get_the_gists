@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "bc571449-922f-4965-b903-a55ddf30231b",
+		"name": "Gists",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Gists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Get list of gists for user name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/marble/gists",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"marble",
+						"gists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get gist by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/gists/12345",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gists",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Favorite gist by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/gists/12345/favorite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gists",
+						"12345",
+						"favorite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Un-Favorite gist by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/gists/12345/favorite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"gists",
+						"12345",
+						"favorite"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
