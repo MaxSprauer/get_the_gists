@@ -1,12 +1,15 @@
+// /gists router
+// Copyright 2021 Max Sprauer
+
 var express = require('express');
 var router = express.Router();
+
 const axios = require('axios').default;
 const ghAxios = axios.create({
   baseURL: 'https://api.github.com',
   timeout: 1000,
   headers: {'Accept': 'application/vnd.github.v3+json'}
 });
-
 
 /* GET a list of gists marked as favorites. */
 // TODO: This prevents a gistId == favorites, but that should be OK for now.

@@ -1,3 +1,6 @@
+// Get the Gists
+// Copyright 2021 Max Sprauer
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
