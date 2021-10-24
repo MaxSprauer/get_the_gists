@@ -31,9 +31,11 @@ Your API should expose an endpoint/query that, given a gist ID, returns a specif
     GET /gists/GISTID
 
 Your API should expose an endpoint/mutation that, given a gist ID, marks the gist as favorited
-Your API should expose an endpoint/mutation that, given a gist ID, marks the gist as not-favorited
 
     PUT /gists/GISTID/favorite
+
+Your API should expose an endpoint/mutation that, given a gist ID, marks the gist as not-favorited
+
     DELETE /gists/GISTID/favorite
 
 Your API should expose an endpoint/query that returns all gists marked as favorites
