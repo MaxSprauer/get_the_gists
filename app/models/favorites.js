@@ -5,23 +5,28 @@
 //TODO There is a lot of low-hanging fruit here: cache connections, cache results, etc.
 
 const { makeDb } = require('mysql-async-simple');
+const db = makeDb();
 
 const mysql = require('mysql');
-const conn = mysql.createConnection({
-    // Obviously I would not usually hardcode a password, much less a whole config
-    // debug: ['ComQueryPacket', 'RowDataPacket'],
-    host: 'localhost',
-    user: 'gist',
-    password: 'gist',     
-    database: 'gist'
-});
+
+// Work around a quirk in mysql library that requires a new connection object every time we connect
+function createConnection() {
+    return conn = mysql.createConnection({
+        // Obviously I would not usually hardcode a password, much less a whole config
+        // debug: ['ComQueryPacket', 'RowDataPacket'],
+        host: 'localhost',
+        user: 'gist',
+        password: 'gist',     
+        database: 'gist'
+    });
+}
 
 module.exports = {  
     // Returns an array of favorite gist IDs
     getFavorites: async function ()
     {
         var gistIds = [];
-        const db = makeDb();
+        const conn = createConnection();
 
         try {
             await db.connect(conn);
@@ -39,7 +44,7 @@ module.exports = {
 
     addFavorite: async function (gistId)
     {
-        const db = makeDb();
+        const conn = createConnection();
 
         try {
             await db.connect(conn);
@@ -57,7 +62,7 @@ module.exports = {
 
     deleteFavorite: async function (gistId)
     {
-        const db = makeDb();
+        const conn = createConnection();
 
         try {
             await db.connect(conn);
